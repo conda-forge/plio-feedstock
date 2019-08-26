@@ -1,5 +1,5 @@
 {% set name = "plio" %}
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/USGS-Astrogeology/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 0c0060902cc2b5a15cd3e568cca9917453777cb71fe73c3f3bfa36bdc03b38ea
+  sha256: ccab12a2879c99ff1481b8a0eb74e8b28a48d747ff1e64948117b36d09a626d9
 
 build:
   number: 0
