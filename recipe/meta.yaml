@@ -41,7 +41,7 @@ test:
 
 about:
   home: http://github.com/USGS-Astrogeology/plio
-  license: Public Domain
+  license: Unlicense
   license_file: LICENSE.md
   summary: input/output library for planetary science data
 
