@@ -212,5 +212,6 @@ Feedstock Maintainers
 =====================
 
 * [@acpaquette](https://github.com/acpaquette/)
+* [@jessemapel](https://github.com/jessemapel/)
 * [@jlaura](https://github.com/jlaura/)
 
