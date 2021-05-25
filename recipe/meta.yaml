@@ -22,7 +22,7 @@ requirements:
   run:
     - python
     - numpy
-    - pvl
+    - pvl >= 1.0
     - protobuf
     - gdal
     - pandas
