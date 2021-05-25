@@ -1,5 +1,5 @@
 {% set name = "plio" %}
-{% set version = "1.2.4" %}
+{% set version = "1.2.5" %}
 
 package:
   name: {{ name|lower }}
@@ -10,7 +10,7 @@ source:
   sha256: 28e3985cdf1144844439a84509ca625daa929107d3a75d037b887735e1bedcff
 
 build:
-  number: 2
+  number: 1
   skip: true  # [py<35]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
