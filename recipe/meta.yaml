@@ -44,6 +44,9 @@ about:
   license: Unlicense
   license_file: LICENSE.md
   summary: input/output library for planetary science data
+  labels:
+    - gdal
+    - no-gdal
 
 extra:
   recipe-maintainers:
