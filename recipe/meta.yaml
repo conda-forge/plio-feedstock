@@ -24,7 +24,7 @@ requirements:
     - numpy
     - pvl >=1.0
     - protobuf
-    - gdal
+    - gdal # [labels=default]
     - pandas
     - sqlalchemy
     - pyyaml
@@ -45,7 +45,7 @@ about:
   license_file: LICENSE.md
   summary: input/output library for planetary science data
   labels:
-    - gdal
+    - default
     - no-gdal
 
 extra:
