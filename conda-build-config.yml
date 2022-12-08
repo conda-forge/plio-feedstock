@@ -1,0 +1,3 @@
+use_gdal:
+- true
+- false

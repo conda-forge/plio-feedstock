@@ -25,7 +25,7 @@ requirements:
     - pvl >=1.0
     - protobuf
     - pandas
-    - sqlalchemy
+    - sqlalchemy 
     - pyyaml
     - affine
     - networkx
@@ -33,7 +33,10 @@ requirements:
     - scipy
     - pyproj
     - jinja2
-
+   {% if use_gdal == "yep" %}
+    - gdal
+   {% endif %}
+   
 test:
   imports:
     - plio
