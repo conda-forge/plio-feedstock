@@ -7,11 +7,17 @@ package:
 source:
   url: https://github.com/USGS-Astrogeology/plio/archive/v{{ version }}.tar.gz
   sha256: fb782d9708cf3f827783c0c7c98168a0f596966f878246567752af4085db8b93
+  patches:
+    - 0000-use-console-scripts.diff
 
 build:
   number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   noarch: python
+  entry_points:
+    - socetnet2isis = plio._cli.socetnet2isis:__main__
+    - isisnet2socet = plio._cli.isisnet2socet:__main__
+
 
 requirements:
   host:
@@ -40,12 +46,15 @@ test:
     - pip
   imports:
     - plio
+
   commands:
     - pip check
+    - socetnet2isis --help
+    - isisnet2socet --help
 
 about:
   home: http://github.com/USGS-Astrogeology/plio
-  license: Unlicense
+  license: CC0-1.0
   license_file: LICENSE.md
   summary: input/output library for planetary science data
 
