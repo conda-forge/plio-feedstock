@@ -1,31 +1,29 @@
-{% set name = "plio" %}
 {% set version = "1.5.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: plio
   version: {{ version }}
 
 source:
-  url: https://github.com/USGS-Astrogeology/{{ name }}/archive/v{{ version }}.tar.gz
+  url: https://github.com/USGS-Astrogeology/plio/archive/v{{ version }}.tar.gz
   sha256: fb782d9708cf3f827783c0c7c98168a0f596966f878246567752af4085db8b93
 
 build:
   number: 1
-  skip: true  # [py<35]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
+  noarch: python
 
 requirements:
   host:
-    - python
-    - setuptools
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
     - numpy
     - pvl >=1.0
     - protobuf
     - pandas
-    - sqlalchemy 
+    - sqlalchemy
     - pyyaml
     - affine
     - networkx
@@ -33,11 +31,17 @@ requirements:
     - scipy
     - pyproj
     - jinja2
-    - gdal  # [using_gdal] 
+    {% if using_gdal %}
+    - gdal
+    {% endif %}
 
 test:
+  requires:
+    - pip
   imports:
     - plio
+  commands:
+    - pip check
 
 about:
   home: http://github.com/USGS-Astrogeology/plio
