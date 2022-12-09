@@ -2,8 +2,6 @@
 {% set version = "1.5.1" %}
 {% set build  = "1" %}
 
-
-
 {% if  gdal_type == 'nogdal' %}
 {% set build = build + 100 %}
 {% endif %}
@@ -22,7 +20,7 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   string: {{ gdal_type }}_{{ build }}
   track_features:
-    - plio_{{ mpi_type }}
+    - plio_{{ gdal_type }}
 
 requirements:
   host:
@@ -43,9 +41,9 @@ requirements:
     - scipy
     - pyproj
     - jinja2
-    {% if gdal_type == "withgdal" %}
-    - gdal
-    {% endif %}
+   {% if  gdal_type == 'withgdal' %} 
+    - gdal  
+   {% endif %}
 
 test:
   imports:
