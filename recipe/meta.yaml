@@ -1,5 +1,12 @@
 {% set name = "plio" %}
 {% set version = "1.5.1" %}
+{% set build  = "1" %}
+
+
+
+{% if  gdal_type == 'nogdal' %}
+{% set build = build + 100 %}
+{% endif %}
 
 package:
   name: {{ name|lower }}
@@ -10,9 +17,12 @@ source:
   sha256: fb782d9708cf3f827783c0c7c98168a0f596966f878246567752af4085db8b93
 
 build:
-  number: 1
+  number: {{ build }}
   skip: true  # [py<35]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
+  string: {{ gdal_type }}_{{ build }}
+  track_features:
+    - plio_{{ mpi_type }}
 
 requirements:
   host:
@@ -33,7 +43,9 @@ requirements:
     - scipy
     - pyproj
     - jinja2
-    - gdal  # [enable_gdal]
+    {% if gdal_type == "withgdal" %}
+    - gdal
+    {% endif %}
 
 test:
   imports:
