@@ -33,7 +33,7 @@ requirements:
     - scipy
     - pyproj
     - jinja2
-    - gdal # [enable_gdal]
+    - gdal  # [enable_gdal]
 
 test:
   imports:
