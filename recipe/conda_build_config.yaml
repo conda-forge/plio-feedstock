@@ -1,0 +1,3 @@
+using_gdal:
+  - gdal
+  - no_gdal

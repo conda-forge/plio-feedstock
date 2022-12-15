@@ -1,0 +1,62 @@
+diff --git a/plio/_cli/__init__.py b/plio/_cli/__init__.py
+new file mode 100644
+index 0000000..e69de29
+diff --git a/bin/isisnet2socet b/plio/_cli/isisnet2socet.py
+similarity index 99%
+rename from bin/isisnet2socet
+rename to plio/_cli/isisnet2socet.py
+index 04a688c..d102d17 100644
+--- a/bin/isisnet2socet
++++ b/plio/_cli/isisnet2socet.py
+@@ -274,5 +274,8 @@ def main(args):
+     # Save the gpf
+     save_gpf(gpf_df, out_gpf)
+ 
++def __main__():
++    main(parse_args())
++
+ if __name__ == '__main__':
+     main(parse_args())
+diff --git a/bin/socetnet2isis b/plio/_cli/socetnet2isis.py
+similarity index 99%
+rename from bin/socetnet2isis
+rename to plio/_cli/socetnet2isis.py
+index 550705c..9cfcccd 100644
+--- a/bin/socetnet2isis
++++ b/plio/_cli/socetnet2isis.py
+@@ -281,7 +281,7 @@ def apply_socet_transformations(atf_dict, df):
+     df['ht'] = ecef[2][0]
+     df['aprioriCovar'] = df.apply(compute_cov_matrix, semimajor_axis = eRadius, axis=1)
+     df['stat'] = df.apply(stat_toggle, axis=1)
+-    
++
+ def main(args):
+     # Setup the at_file, path to cubes, and control network out path
+     at_file = args.at_file
+@@ -341,5 +341,8 @@ def main(args):
+     # creates the control network
+     cn.to_isis(os.path.join(outpath, cnet_out + '.net'), socet_df, serial_dict, targetname = args.target_name)
+ 
++def __main__():
++    main(parse_args())
++
+ if __name__ == '__main__':
+     main(parse_args())
+diff --git a/setup.py b/setup.py
+index 56c6c43..9c89061 100644
+--- a/setup.py
++++ b/setup.py
+@@ -20,7 +20,12 @@ def setup_package():
+         include_package_data=True,
+         package_data={'plio' : ['sqlalchemy_json/*.py', 'sqlalchemy_json/LICENSE']},
+         zip_safe=True,
+-        scripts=['bin/socetnet2isis', 'bin/isisnet2socet'],
++        entry_points={
++            'console_scripts': [
++                'socetnet2isis = plio._cli.socetnet2isis:__main__',
++                'isisnet2socet = plio._cli.isisnet2socet:__main__',
++            ]
++        },
+         install_requires=[
+             'gdal',
+             'numpy',
