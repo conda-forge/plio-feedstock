@@ -37,7 +37,7 @@ requirements:
     - scipy
     - pyproj
     - jinja2
-    {% if using_gdal %}
+    {% if using_gdal == "gdal" %}
     - gdal
     {% endif %}
 
