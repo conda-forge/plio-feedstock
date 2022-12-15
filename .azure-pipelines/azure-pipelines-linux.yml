@@ -8,16 +8,16 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_using_gdalfalse:
-        CONFIG: linux_64_using_gdalfalse
+      linux_64_using_gdalgdal:
+        CONFIG: linux_64_using_gdalgdal
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_64_using_gdalfalse
-      linux_64_using_gdaltrue:
-        CONFIG: linux_64_using_gdaltrue
+        SHORT_CONFIG: linux_64_using_gdalgdal
+      linux_64_using_gdalno_gdal:
+        CONFIG: linux_64_using_gdalno_gdal
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_64_using_gdaltrue
+        SHORT_CONFIG: linux_64_using_gdalno_gdal
   timeoutInMinutes: 360
 
   steps:
