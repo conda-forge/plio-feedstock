@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/USGS-Astrogeology/plio/archive/v{{ version }}.tar.gz
-  sha256: 3dfeba4c57dc9eb064d4b9a20d691aea67faefb922c9cdfef1d617b5a16a68c3
+  sha256: d229bcfd4ffb0e6edbce0e55a6407547fd0a29f1e645aa7ab5e2e934022a8bf7
   patches:
     - 0000-use-console-scripts.diff
 
