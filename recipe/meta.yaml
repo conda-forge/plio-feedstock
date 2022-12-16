@@ -1,30 +1,33 @@
-{% set name = "plio" %}
-{% set version = "1.5.1" %}
+{% set version = "1.5.2" %}
 
 package:
-  name: {{ name|lower }}
+  name: plio
   version: {{ version }}
 
 source:
-  url: https://github.com/USGS-Astrogeology/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: fb782d9708cf3f827783c0c7c98168a0f596966f878246567752af4085db8b93
+  url: https://github.com/USGS-Astrogeology/plio/archive/v{{ version }}.tar.gz
+  sha256: d229bcfd4ffb0e6edbce0e55a6407547fd0a29f1e645aa7ab5e2e934022a8bf7
+  patches:
+    - 0000-use-console-scripts.diff
 
 build:
   number: 1
-  skip: true  # [py<35]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
+  noarch: python
+  entry_points:
+    - socetnet2isis = plio._cli.socetnet2isis:__main__
+    - isisnet2socet = plio._cli.isisnet2socet:__main__
+
 
 requirements:
   host:
-    - python
-    - setuptools
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
     - numpy
     - pvl >=1.0
     - protobuf
-    - gdal
     - pandas
     - sqlalchemy
     - pyyaml
@@ -34,14 +37,23 @@ requirements:
     - scipy
     - pyproj
     - jinja2
+  run_constrained: 
+    - gdal
 
 test:
+  requires:
+    - pip
   imports:
     - plio
 
+  commands:
+    - pip check
+    - socetnet2isis --help
+    - isisnet2socet --help
+
 about:
   home: http://github.com/USGS-Astrogeology/plio
-  license: Unlicense
+  license: CC0-1.0
   license_file: LICENSE.md
   summary: input/output library for planetary science data
 
