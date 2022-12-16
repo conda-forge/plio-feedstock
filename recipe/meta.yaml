@@ -37,9 +37,8 @@ requirements:
     - scipy
     - pyproj
     - jinja2
-    {% if using_gdal == "gdal" %}
+  run_constrained: 
     - gdal
-    {% endif %}
 
 test:
   requires:
@@ -48,7 +47,6 @@ test:
     - plio
 
   commands:
-    - pip check
     - socetnet2isis --help
     - isisnet2socet --help
 
