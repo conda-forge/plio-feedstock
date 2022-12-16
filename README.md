@@ -15,7 +15,7 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=2493&branchName=main">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
         <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/plio-feedstock?branchName=main">
       </a>
     </td>
@@ -146,3 +146,4 @@ Feedstock Maintainers
 * [@acpaquette](https://github.com/acpaquette/)
 * [@jlaura](https://github.com/jlaura/)
 * [@kelvinrr](https://github.com/kelvinrr/)
+
