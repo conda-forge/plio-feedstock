@@ -1,4 +1,4 @@
-{% set version = "1.5.2" %}
+{% set version = "1.5.3" %}
 
 package:
   name: plio
@@ -6,12 +6,12 @@ package:
 
 source:
   url: https://github.com/USGS-Astrogeology/plio/archive/v{{ version }}.tar.gz
-  sha256: d229bcfd4ffb0e6edbce0e55a6407547fd0a29f1e645aa7ab5e2e934022a8bf7
+  sha256: e2c6e1bddf539b275778f96fbdcb667629f6f6f0b54aaaa4003e78d1d686c8d2
   patches:
     - 0000-use-console-scripts.diff
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   noarch: python
   entry_points:
@@ -37,7 +37,7 @@ requirements:
     - scipy
     - pyproj
     - jinja2
-  run_constrained: 
+  run_constrained:
     - gdal
 
 test:
