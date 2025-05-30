@@ -21,14 +21,15 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - setuptools
   run:
-    - python >=3.6
+    - python
     - numpy
     - pvl >=1.0
-    - protobuf
+    - protobuf>=4,<5
+    - libprotobuf>=4,<5
     - pandas
     - sqlalchemy
     - pyyaml
