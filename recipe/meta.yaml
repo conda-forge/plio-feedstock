@@ -23,11 +23,11 @@ requirements:
   build:
     - python
   host:
-    - python
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - numpy
     - pvl >=1.0
     - protobuf >=4,<5
