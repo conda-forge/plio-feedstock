@@ -1,4 +1,4 @@
-{% set version = "1.6.0" %}
+{% set version = "1.6.1" %}
 
 package:
   name: plio
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/USGS-Astrogeology/plio/archive/{{ version }}.tar.gz
-  sha256: 17df92c87e0baa465a25ba1780e0b24afc8ee64198883fff07c1ef3f492a9116
+  sha256: b409e8122ea382e95d06d17c257b7b71598df496b1168f9dc6612e67b0dc38e3
   patches:
     - 0000-use-console-scripts.diff
 
