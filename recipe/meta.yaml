@@ -9,6 +9,7 @@ source:
   sha256: b409e8122ea382e95d06d17c257b7b71598df496b1168f9dc6612e67b0dc38e3
   patches:
     - 0000-use-console-scripts.diff
+    - 0001-Fixes-Protobuf-compatability-issues-217.patch
 
 build:
   number: 0
@@ -28,7 +29,7 @@ requirements:
     - python >=3.6
     - numpy
     - pvl >=1.0
-    - protobuf
+    - protobuf >=4,<5
     - pandas
     - sqlalchemy
     - pyyaml
